@@ -21,7 +21,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
-    // sơn tít
+    // sơn tít nà ní
     EditText edtUsername,edtPassword;
     Button btnDangnhap;
     TextView txtDangki;
