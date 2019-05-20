@@ -30,6 +30,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         anhxa();
+        txtDangki.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,home.class));
+            }
+        });
         btnDangnhap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -50,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void anhxa() {
-        edtUsername = ( EditText) findViewById(R.id.edittextUsername);
+        edtUsername = (EditText) findViewById(R.id.edittextUsername);
         edtPassword = (EditText) findViewById(R.id.edittextPassword);
         btnDangnhap = (Button) findViewById(R.id.buttonDangnhap);
         txtDangki  = (TextView) findViewById(R.id.textviewDangki);

@@ -12,6 +12,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.ViewFlipper;
 
 import com.squareup.picasso.Picasso;
