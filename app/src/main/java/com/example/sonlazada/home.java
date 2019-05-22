@@ -1,5 +1,6 @@
 package com.example.sonlazada;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentManager;
@@ -64,8 +65,8 @@ public class home extends AppCompatActivity {
         ActionViewliper();
         sukiendrawer();
     }
-   // setup recycleview
-    private void getdata(String url) {
+   // get data san pham từ url vào mảng sản phẩm
+    public void getdata(String url) {
         final RequestQueue requestQueue = Volley.newRequestQueue(this);
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
             @Override
@@ -109,13 +110,22 @@ public class home extends AppCompatActivity {
                 // For example, swap UI fragments here
                 switch (menuItem.getItemId())
                 {
-                    case R.id.menudienthoai:
-                        Toast.makeText(home.this, "Bạn chọn điện thoại", Toast.LENGTH_SHORT).show();
-                        break;
-                    case R.id.menulaptop:
-                        Toast.makeText(home.this, "Bạn chọn laptop", Toast.LENGTH_SHORT).show();
+                        case R.id.menudienthoai:
+                            Toast.makeText(home.this, "Bạn chọn điện thoại", Toast.LENGTH_SHORT).show();
+                            break;
+                        case R.id.menulaptop:
+                            Toast.makeText(home.this, "Bạn chọn laptop", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(home.this,cagetorysanpham.class);
+                            intent.putExtra("cagetory","DT");
+                            startActivity(intent);
+                            break;
+                        case R.id.menutruyen :
+                            Toast.makeText(home.this, "Bạn chọn truyện", Toast.LENGTH_SHORT).show();
+                            break;
+                        case R.id.menugaixinh:
+                            Toast.makeText(home.this, "Bạn chọn gái xinh", Toast.LENGTH_SHORT).show();
+                            break;
 
-                        break;
                 }
                 return true;
             }
@@ -165,6 +175,7 @@ public class home extends AppCompatActivity {
         recyclerView = (RecyclerView) findViewById(R.id.recycleview);
         sanphamArrayList = new ArrayList<>();
         getdata(urlspkm);
+        Log.d("xxx",sanphamArrayList.size()+"");
         adapter = new sanphamAdapter(this,sanphamArrayList);
         recyclerView.setLayoutManager(new GridLayoutManager(this,2));
         recyclerView.setHasFixedSize(true);
@@ -180,7 +191,12 @@ public class home extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-
+        switch (item.getItemId())
+        {
+            case R.id.menugiohang:
+                Toast.makeText(this, "Bạn chọn giỏ hàng", Toast.LENGTH_SHORT).show();
+                break;
+        }
         return super.onOptionsItemSelected(item);
     }
 }

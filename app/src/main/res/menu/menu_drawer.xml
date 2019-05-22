@@ -11,7 +11,7 @@
             android:icon="@drawable/laptop"
             android:title="LAPTOP"
             ></item>
-        <item android:id="@+id/menudienthoa"
+        <item android:id="@+id/menugaixinh"
             android:icon="@drawable/sex"
             android:title="Gái Xinh"
             ></item>
