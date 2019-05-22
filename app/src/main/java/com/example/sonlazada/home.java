@@ -112,18 +112,25 @@ public class home extends AppCompatActivity {
                 {
                         case R.id.menudienthoai:
                             Toast.makeText(home.this, "Bạn chọn điện thoại", Toast.LENGTH_SHORT).show();
-                            break;
-                        case R.id.menulaptop:
-                            Toast.makeText(home.this, "Bạn chọn laptop", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(home.this,cagetorysanpham.class);
                             intent.putExtra("cagetory","DT");
                             startActivity(intent);
                             break;
+                        case R.id.menulaptop:
+                            Toast.makeText(home.this, "Bạn chọn laptop", Toast.LENGTH_SHORT).show();
+                            Intent intent1 = new Intent(home.this,cagetorysanpham.class);
+                            intent1.putExtra("cagetory","LT");
+                            startActivity(intent1);
+                            break;
                         case R.id.menutruyen :
                             Toast.makeText(home.this, "Bạn chọn truyện", Toast.LENGTH_SHORT).show();
+                            Intent intent2 = new Intent(home.this,truyen.class);
+                            startActivity(intent2);
                             break;
                         case R.id.menugaixinh:
                             Toast.makeText(home.this, "Bạn chọn gái xinh", Toast.LENGTH_SHORT).show();
+                            Intent intent3 = new Intent(home.this,gaixinh.class);
+                            startActivity(intent3);
                             break;
 
                 }
@@ -139,6 +146,9 @@ public class home extends AppCompatActivity {
         mangquangcao.add("http://media3.onbox.vn:8088/phimonbox/images/20190418/29049c0d62d642799101ae211bb2d1af.jpg");
         mangquangcao.add("https://anh.24h.com.vn/upload/3-2017/images/2017-08-17/1502986335-150296510441633-atita-lao13.jpg");
         mangquangcao.add("https://1.bp.blogspot.com/-UbvXuPlDBic/WOJF_TKOJlI/AAAAAAAAmAs/5-cg_-QP4k8M4j0IpOFk5TxlVnsQdTLWACLcB/s640/17264548_1004270759703007_3983698336473630247_n.jpg");
+        mangquangcao.add("https://i.a4vn.com/2017/1/3/anh-girl-xinh-sexy-goi-cam-7efa8d.jpg");
+        mangquangcao.add("https://i.a4vn.com/2017/1/3/anh-girl-xinh-sexy-goi-cam-c78c7a.jpg");
+        mangquangcao.add("http://img.tophinh.com/img/photo-2018-12/5c1316c906b21/97bf3be651228a93fc39418ca03576bd-resize.jpg");
         for(int i=0;i<mangquangcao.size();i++)
         {
             ImageView imageView = new ImageView(getApplicationContext());
@@ -195,6 +205,7 @@ public class home extends AppCompatActivity {
         {
             case R.id.menugiohang:
                 Toast.makeText(this, "Bạn chọn giỏ hàng", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(home.this,giohang.class));
                 break;
         }
         return super.onOptionsItemSelected(item);

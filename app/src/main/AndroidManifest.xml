@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".cagetorysanpham"></activity>
+        <activity android:name=".giohang"></activity>
+        <activity android:name=".gaixinh" />
+        <activity android:name=".truyen" />
+        <activity android:name=".cagetorysanpham" />
         <activity android:name=".home" />
         <activity android:name=".MainActivity">
             <intent-filter>

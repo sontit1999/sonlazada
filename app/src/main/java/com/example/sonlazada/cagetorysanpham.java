@@ -1,12 +1,16 @@
 package com.example.sonlazada;
 
 import android.content.Intent;
+import android.support.v4.view.GravityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -25,24 +29,38 @@ import java.util.ArrayList;
 import unity.Sanpham;
 
 public class cagetorysanpham extends AppCompatActivity {
-    RecyclerView recyclerView;
-    sanphamAdapter adapter;
-    ArrayList<Sanpham> arrsanpham;
+    ArrayAdapter arrayAdapter;
+    ListView lv;
+    Toolbar toolbar;
+    ArrayList<String> arrsanpham;
     String urlloaisp = "http://192.168.0.100/getloaisanpham.php";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cagetorysanpham);
         anhxa();
-        Intent intent = getIntent();
-        String category = intent.getStringExtra("cagetory");
-
+        getdata(urlloaisp);
+        arrayAdapter = new ArrayAdapter(cagetorysanpham.this,android.R.layout.simple_list_item_1,arrsanpham);
+        lv.setAdapter(arrayAdapter);
+        setuptoolbar();
 
 
     }
 
 
-
+    // set up toolbar
+    public void setuptoolbar()
+    {
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        toolbar.setNavigationIcon(R.drawable.iconback1);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                   finish();
+            }
+        });
+    }
     // get data
     public void getdata(String url) {
         final RequestQueue requestQueue = Volley.newRequestQueue(this);
@@ -59,7 +77,8 @@ public class cagetorysanpham extends AppCompatActivity {
                         String linkanh = object.getString("linkanhsp");
                         int sl = object.getInt("soluongsp");
                         String mota = object.getString("motasp");
-                        arrsanpham.add(new Sanpham(masp,tensp,giasp,linkanh,sl,mota));
+                        arrsanpham.add(tensp);
+                        Toast.makeText(cagetorysanpham.this, arrsanpham.get(i), Toast.LENGTH_SHORT).show();
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -77,7 +96,9 @@ public class cagetorysanpham extends AppCompatActivity {
     }
 
     private void anhxa() {
-        recyclerView = (RecyclerView) findViewById(R.id.recycleviewcagetory);
+        toolbar = (Toolbar) findViewById(R.id.toolbarcagetory);
+        lv = (ListView) findViewById(R.id.listviewcagetory);
         arrsanpham = new ArrayList<>();
+
     }
 }

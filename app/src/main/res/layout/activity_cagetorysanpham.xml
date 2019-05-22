@@ -6,14 +6,16 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".cagetorysanpham">
-    <TextView
-        android:text="Sơn tít"
-        android:textSize="50sp"
+    <android.support.v7.widget.Toolbar
+        android:background="#03A9F4"
+        android:id="@+id/toolbarcagetory"
+        app:navigationIcon="@drawable/iconshopping"
+        app:title="loại sản phẩm"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycleviewcagetory"
+        android:layout_height="wrap_content"></android.support.v7.widget.Toolbar>
+    <ListView
+        android:id="@+id/listviewcagetory"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
+        android:layout_height="wrap_content"></ListView>
 
 </LinearLayout>
