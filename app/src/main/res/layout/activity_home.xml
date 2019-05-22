@@ -36,26 +36,29 @@
                     android:text="Sản Phẩm Khuyến Mãi"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
-                <android.support.v7.widget.RecyclerView
-                    android:id="@+id/recyclerviewSanphamKm"
+                <FrameLayout
+                    android:id="@+id/framelayout"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
-
-                </android.support.v7.widget.RecyclerView>
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/recycleview"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                    </android.support.v7.widget.RecyclerView>
+                </FrameLayout>
             </LinearLayout>
         </LinearLayout>
         <!-- End Nội dung -->
         <!-- start left Menu -->
         <android.support.design.widget.NavigationView
+            app:headerLayout="@layout/drawer_header"
+            app:menu="@menu/menu_drawer"
             android:id="@+id/navigationviewmanhinhchinh"
             android:layout_gravity="start"
             android:fitsSystemWindows="true"
+            android:background="#fff"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-            <ListView
-                android:id="@+id/listviewmanhinhchinh"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"></ListView>
         </android.support.design.widget.NavigationView>
     </android.support.v4.widget.DrawerLayout>
 </LinearLayout>
