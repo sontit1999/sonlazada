@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="10dp"
+    android:layout_height="wrap_content"
+    android:padding="5dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <android.support.v7.widget.CardView
         android:background="#4CAF50"
@@ -16,7 +16,7 @@
             android:layout_width="40dp"
             android:layout_height="40dp" />
         <FrameLayout
-            android:paddingVertical="40dp"
+            android:paddingVertical="30dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -29,7 +29,7 @@
                     android:src="@drawable/anhthiennhien"
                     android:id="@+id/imageviewsp"
                     android:layout_width="150dp"
-                    android:layout_height="150dp" />
+                    android:layout_height="135dp" />
                 <TextView
                     android:gravity="center"
                     android:text="Tên sản phẩm"

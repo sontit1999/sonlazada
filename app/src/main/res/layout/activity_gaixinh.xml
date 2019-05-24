@@ -1,13 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context=".giohang">
+<android.support.v7.widget.Toolbar
+    android:background="#2196F3"
+    android:id="@+id/toolbargaixinh"
+    app:navigationIcon="@drawable/iconback1"
+    app:title="giỏ hàng"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".gaixinh">
-   <TextView
-       android:text="gái xinh"
-       android:textSize="50sp"
-       android:layout_width="match_parent"
-       android:layout_height="match_parent" />
-</android.support.constraint.ConstraintLayout>
+    android:layout_height="wrap_content"></android.support.v7.widget.Toolbar>
+<android.support.v7.widget.RecyclerView
+    android:id="@+id/recycleviewgaixinh"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
+</LinearLayout>

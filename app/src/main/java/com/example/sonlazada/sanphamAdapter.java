@@ -47,16 +47,34 @@ public class sanphamAdapter extends RecyclerView.Adapter<sanphamAdapter.Itemhold
         return arraysanpham.size();
     }
 
+    private static OnItemClickListener listener;
+
+    public interface OnItemClickListener {
+        void onItemClick(View itemView, int position);
+    }
+
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        this.listener = listener;
+    }
+
     public class Itemholder extends RecyclerView.ViewHolder{
         public ImageView imghinhsp;
         public TextView txttensp;
         public TextView txtgiasp;
 
-        public Itemholder(@NonNull View itemView) {
+        public Itemholder(@NonNull final View itemView) {
             super(itemView);
             imghinhsp = (ImageView) itemView.findViewById(R.id.imageviewsp);
             txttensp = (TextView) itemView.findViewById(R.id.textviewtensp);
             txtgiasp = (TextView) itemView.findViewById(R.id.textviewgiasp);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (listener != null)
+                        listener.onItemClick(itemView, getLayoutPosition());
+                }
+            });
         }
     }
 }

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".inforsanpham">
+    <LinearLayout
+        android:background="#03A9F4"
+        android:id="@+id/toolbarr"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <ImageView
+            android:id="@+id/imageviewback"
+            android:src="@drawable/iconback1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <ScrollView
+        android:layout_below="@+id/toolbarr"
+        android:layout_above="@+id/bottomnav"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/imaviewsanpham"
+                android:src="@drawable/go"
+                android:layout_width="match_parent"
+                android:layout_height="300dp" />
+            <TextView
+                android:textStyle="bold"
+                android:id="@+id/textviewgiasp"
+                android:padding="5dp"
+                android:textColor="#E70E0E"
+                android:text="89.000đ"
+                android:textSize="25sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:textStyle="bold"
+                android:padding="5dp"
+                android:id="@+id/textviewtensp"
+                android:textColor="#020202"
+                android:textSize="20sp"
+                android:text="Tên sản phẩm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:textStyle="italic"
+                android:padding="15dp"
+                android:textSize="18sp"
+                android:id="@+id/textviewgioithieusp"
+                android:textColor="#806666"
+                android:text="Giới thiệu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+    </ScrollView>
+    <LinearLayout
+        android:id="@+id/bottomnav"
+        android:padding="5dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:weightSum="6"
+        android:layout_width="match_parent"
+        android:layout_height="80dp">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+            <ImageView
+                android:src="@drawable/iconshop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:gravity="center"
+                android:text="Của hàng"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+            <ImageView
+                android:src="@drawable/iconchat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:gravity="center"
+                android:text="Chat"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+        <LinearLayout
+            android:background="#FF9800"
+            android:orientation="vertical"
+            android:layout_weight="2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+            <TextView
+                android:textColor="#fff"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:gravity="center"
+                android:text="Mua ngay"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+        <LinearLayout
+            android:background="#CC0010"
+            android:orientation="vertical"
+            android:layout_weight="2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+            <TextView
+                android:textColor="#fff"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:gravity="center"
+                android:text="Thêm vào giỏ hàng"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

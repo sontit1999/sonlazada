@@ -43,6 +43,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import unity.Sanpham;
@@ -55,15 +56,27 @@ public class home extends AppCompatActivity {
     DrawerLayout drawerLayout;
     RecyclerView recyclerView;
     sanphamAdapter adapter;
-    String urlspkm = "http://192.168.0.100/getspkm.php";
+    String urlspkm = "https://sontithaui.000webhostapp.com/getspkm.php";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         anhxa();
+        getdata(urlspkm);
+        recyclerView.setLayoutManager(new GridLayoutManager(this,2));
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setAdapter(adapter);
         Actionbar();
         ActionViewliper();
         sukiendrawer();
+        adapter.setOnItemClickListener(new sanphamAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(View itemView, int position) {
+                Intent intent = new Intent(home.this,inforsanpham.class);
+                intent.putExtra("sanpham",sanphamArrayList.get(position));
+                startActivity(intent);
+            }
+        });
     }
    // get data san pham từ url vào mảng sản phẩm
     public void getdata(String url) {
@@ -71,22 +84,22 @@ public class home extends AppCompatActivity {
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
+                Toast.makeText(home.this, response.toString(), Toast.LENGTH_SHORT).show();
                 for(int i=0;i<response.length();i++)
                 {
                     try {
                         JSONObject object = response.getJSONObject(i);
                         String tensp = object.getString("tensp");
-                        String masp = "SP001";
+                        String masp = object.getString("masp");
                         int giasp = object.getInt("giasp");
                         String linkanh = object.getString("linkanhsp");
                         int sl = object.getInt("soluongsp");
                         String mota = object.getString("motasp");
                         sanphamArrayList.add(new Sanpham(masp,tensp,giasp,linkanh,sl,mota));
-                        Log.d("son",sanphamArrayList.size() + "");
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
-
+                    adapter.notifyDataSetChanged();
                 }
             }
         },
@@ -184,12 +197,8 @@ public class home extends AppCompatActivity {
         drawerLayout = (DrawerLayout) findViewById(R.id.drawerlayout);
         recyclerView = (RecyclerView) findViewById(R.id.recycleview);
         sanphamArrayList = new ArrayList<>();
-        getdata(urlspkm);
-        Log.d("xxx",sanphamArrayList.size()+"");
         adapter = new sanphamAdapter(this,sanphamArrayList);
-        recyclerView.setLayoutManager(new GridLayoutManager(this,2));
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setAdapter(adapter);
+
     }
 
     @Override

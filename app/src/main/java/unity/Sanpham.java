@@ -1,6 +1,8 @@
 package unity;
 
-public class Sanpham {
+import java.io.Serializable;
+
+public class Sanpham implements Serializable {
     String masp;
     String tensp;
     int giasp;

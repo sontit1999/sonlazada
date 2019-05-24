@@ -9,13 +9,12 @@
     <android.support.v7.widget.Toolbar
         android:background="#03A9F4"
         android:id="@+id/toolbarcagetory"
-        app:navigationIcon="@drawable/iconshopping"
+        app:navigationIcon="@drawable/iconback1"
         app:title="loại sản phẩm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"></android.support.v7.widget.Toolbar>
-    <ListView
-        android:id="@+id/listviewcagetory"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"></ListView>
-
+     <android.support.v7.widget.RecyclerView
+         android:id="@+id/recycleviewcagetogy"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
 </LinearLayout>

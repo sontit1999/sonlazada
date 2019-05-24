@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".giohang">
-    <TextView
-        android:textSize="50sp"
-        android:text="giỏ hàng"
+    <android.support.v7.widget.Toolbar
+        android:background="#2196F3"
+        android:id="@+id/toolbarsanpham"
+        app:navigationIcon="@drawable/iconback1"
+        app:title="giỏ hàng"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-</android.support.constraint.ConstraintLayout>
+        android:layout_height="wrap_content"></android.support.v7.widget.Toolbar>
+</LinearLayout>
